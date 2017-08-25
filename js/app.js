@@ -1,3 +1,4 @@
+var TILE_WIDTH = 101, TILE_HEIGHT = 83;
 // Enemies our player must avoid
 var Enemy = function (y, speed) {
     // Variables applied to each of our instances go here,
@@ -44,8 +45,8 @@ var Player = function () {
 
 Player.prototype.update = function (dt) {
 
-    Player.x = 50;
-    Player.y = 50;
+    this.x = 50;
+    this.y = 50;
 
 };
 
@@ -81,20 +82,20 @@ document.addEventListener('keyup', function (e) {
 
 Player.prototype.handleInput = function (keyCode) {
     if (keyCode === 'left') {
-        if (this.x - 101 > -100)
-            this.x -= 101;
+        if (this.x - TILE_WIDTH > -100)
+            this.x -= TILE_WIDTH;
     } else if (keyCode === 'right') {
-        if (this.x + 101 < 504)
-            this.x += 101;
+        if (this.x + TILE_WIDTH < 504)
+            this.x += TILE_WIDTH;
     } else if (keyCode === 'up') {
-        if (this.y - 85 > 0)
-            this.y -= 85;
+        if (this.y - TILE_HEIGHT > 0)
+            this.y -= TILE_HEIGHT;
         else {
             this.y = 404;
             this.x = 202;
         }
     } else if (keyCode === 'down') {
-        if (this.y + 85 < 406)
-            this.y += 85;
+        if (this.y + TILE_HEIGHT < 406)
+            this.y += TILE_HEIGHT;
     }
 };
