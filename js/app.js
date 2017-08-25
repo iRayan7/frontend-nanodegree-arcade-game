@@ -18,11 +18,13 @@ Enemy.prototype.update = function (dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    
+    // checking if the monsters are on the hero block.
     if ((this.x > player1.x - 85 && this.x < player1.x + 85) && this.y > player1.y - 50 && this.y < player1.y + 50) {
         player1.x = 202;
         player1.y = 404;
     }
-
+    // to make the monsters code again to screen
     if (this.x > 700)
         this.x = -200;
     this.x = this.x + (this.speed * dt);
@@ -90,7 +92,7 @@ Player.prototype.handleInput = function (keyCode) {
     } else if (keyCode === 'up') {
         if (this.y - TILE_HEIGHT > 0)
             this.y -= TILE_HEIGHT;
-        else {
+        else { // when the hero reaches the river on the other side, the game reset it self by placing the hero on the starting block
             this.y = 404;
             this.x = 202;
         }
