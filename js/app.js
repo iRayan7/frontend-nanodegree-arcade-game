@@ -47,8 +47,7 @@ var Player = function () {
 
 Player.prototype.update = function (dt) {
 
-    this.x = 50;
-    this.y = 50;
+   
 
 };
 
